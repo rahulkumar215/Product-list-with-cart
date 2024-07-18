@@ -1,39 +1,47 @@
 .food__card {
   //   background-color: orangered;
-  position: relative;
+
+  display: flex;
+  flex-direction: column;
 
   &__image {
     width: 100%;
     border-radius: 1rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: -0.5rem;
+    border: 2px solid transparent;
   }
 
   &__category {
     font-size: 1.4rem;
     margin-bottom: 0.5rem;
+    color: var(--color-rose-40);
   }
 
   &__title {
     font-size: var(--font-size-product-name);
     font-weight: var(--font-semi-bold);
     margin-bottom: 0.5rem;
+    color: var(--color-rose-90);
   }
 
   &__price {
     font-size: var(--font-size-product-name);
     font-weight: var(--font-semi-bold);
+    color: var(--color-red);
   }
 
-  &__btn-cart {
+  &__btn {
+    align-self: center;
+    transform: translateY(-40%);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 65%;
+    max-width: 65%;
+    min-width: 16rem;
 
-    position: absolute;
-    top: 69.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    cursor: pointer;
+
     background-color: white;
     border: 1px solid var(--color-red);
     padding: 1.1rem 2.5rem;
@@ -43,8 +51,63 @@
     font-family: inherit;
     font-size: 1.4rem;
 
+    transition: all 0.3s;
+
+    &-cart {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .cart-icon {
       margin-right: 0.6rem;
+      fill: var(--color-red);
+    }
+  }
+
+  &--active {
+    .food__card__image {
+      border: 2px solid var(--color-red);
+    }
+
+    .food__card__btn {
+      justify-content: space-between;
+      background-color: var(--color-red);
+      color: var(--color-white);
+      cursor: default;
+
+      text-wrap: nowrap;
+
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.3rem;
+        border: 1px solid var(--color-white);
+        border-radius: 50%;
+
+        cursor: pointer;
+
+        .active-icon {
+          width: 0.9rem;
+          height: 0.9rem;
+          fill: var(--color-white);
+        }
+
+        &:hover {
+          background-color: var(--color-white);
+
+          .active-icon {
+            fill: var(--color-red);
+            stroke: var(--color-red);
+          }
+        }
+      }
+
+      .cart-icon {
+        fill: var(--color-white);
+      }
     }
   }
 }

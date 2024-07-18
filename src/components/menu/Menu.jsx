@@ -6,11 +6,9 @@ import Card from "../card/Card";
 const Menu = () => {
   return (
     <>
-      {Data.map((data) => (
-        <Card data={data} />
+      {Data.map((data, i) => (
+        <Card data={data} key={i} />
       ))}
-
-      {/* <Card data={Data[0]} /> */}
     </>
   );
 };
