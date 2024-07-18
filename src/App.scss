@@ -1,0 +1,30 @@
+.container {
+  width: var(--desktop-width);
+  margin-right: auto;
+  margin-left: auto;
+
+  padding: 8.7rem 11.25rem;
+
+  &__menu {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 3.1rem;
+    column-gap: 2.3rem;
+  }
+
+  &__cart {
+    width: 100%;
+    background-color: green;
+  }
+
+  display: grid;
+  grid-template-columns: 1fr 38rem;
+  column-gap: 3.5rem;
+}
+
+.heading-h1 {
+  font-size: var(--heading-h1);
+  margin-bottom: 2.7rem;
+}
