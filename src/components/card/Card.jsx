@@ -8,19 +8,21 @@ const Card = ({ data, updateCartItems, items }) => {
   const handleIncrement = () => setItemCount((prev) => prev + 1);
   const handleDecrement = () => setItemCount((prev) => prev - 1);
 
+  const obj = {
+    id: data.name,
+    title: data.name,
+    img: data.image.desktop,
+    qty: itemCount,
+    price: data.price,
+  };
+
   useEffect(() => {
-    updateCartItems({
-      id: data.name,
-      title: data.name,
-      img: data.image.desktop,
-      qty: itemCount,
-      price: data.price,
-    });
-  }, [itemCount, data.name, data.image.desktop, data.price, updateCartItems]);
+    updateCartItems(obj);
+  }, [itemCount]);
 
   useEffect(() => {
     !items.some((item) => item.id === data.name) && setItemCount(0);
-  }, [items, data.name]);
+  }, [items]);
 
   return (
     <div
