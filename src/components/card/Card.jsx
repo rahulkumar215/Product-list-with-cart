@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Card.scss";
 import AddToCartButton from "../addToCartButton/AddToCartButton";
 
-const Card = ({ data }) => {
+const Card = ({ data, updateCartItems, items }) => {
   const [itemCount, setItemCount] = useState(0);
 
-  const handleIncrement = () => {
-    setItemCount((prev) => prev + 1);
-  };
+  useEffect(() => {
+    updateCartItems({
+      id: data.name,
+      title: data.name,
+      img: data.image.desktop,
+      qty: itemCount,
+      price: data.price,
+    });
+  }, [itemCount]);
 
-  const handleDecrement = () => {
-    setItemCount((prev) => prev - 1);
-  };
+  useEffect(() => {
+    !items.some((item) => item.id === data.name) && setItemCount(0);
+  }, [items]);
+
+  const handleIncrement = () => setItemCount((prev) => prev + 1);
+  const handleDecrement = () => setItemCount((prev) => prev - 1);
+
   return (
     <div
       className={itemCount > 0 ? "food__card food__card--active" : "food__card"}

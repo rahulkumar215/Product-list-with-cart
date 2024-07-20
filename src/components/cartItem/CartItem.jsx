@@ -2,7 +2,7 @@ import React from "react";
 import "./CartItem.scss";
 import { ReactComponent as TimesIcon } from "../../assets/images/icon-remove-item.svg";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, removeCartIcon }) => {
   return (
     <div className="cart__item">
       <div className="cart__item-details">
@@ -15,7 +15,10 @@ const CartItem = ({ item }) => {
           </p>
         </div>
       </div>
-      <button className="cart__item-del-btn">
+      <button
+        className="cart__item-del-btn"
+        onClick={() => removeCartIcon(item.id)}
+      >
         <TimesIcon className="del-icon" />
       </button>
     </div>

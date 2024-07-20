@@ -1,47 +1,29 @@
 import React from "react";
-import "./Cart.scss";
-import { ReactComponent as EmptyIcon } from "../../assets/images/illustration-empty-cart.svg";
-import { ReactComponent as TreeIcon } from "../../assets/images/icon-carbon-neutral.svg";
 import CartItem from "../cartItem/CartItem";
+import "./Cart.scss";
+import OrderTotal from "./OrderTotal";
+import CarboxNutral from "./CarboxNutral";
+import EmptyCart from "./EmptyCart";
+import ConfirmButton from "./ConfirmButton";
 
-const Cart = ({ items }) => {
-  let total = 0;
-  items.map((item) => item.qty * item.price).forEach((item) => (total += item));
-
-  console.log(total);
+const Cart = ({ items, removeCartIcon }) => {
+  const total = items.reduce((acc, item) => acc + item.qty * item.price, 0);
 
   return (
     <div className="food__cart">
-      <h2 className="heading-2 mb-0-9">Your Cart (0)</h2>
+      <h2 className="heading-2 mb-0-9">Your Cart ({items.length})</h2>
       <div className="food__cart-items">
         {items.length > 0 ? (
           <>
             {items.map((item, i) => (
-              <CartItem item={item} key={i} />
+              <CartItem item={item} key={i} removeCartIcon={removeCartIcon} />
             ))}
-            <div className="order">
-              <p className="order__p">Order Total</p>
-              <h2 className="heading-2">${total.toFixed(2)}</h2>
-            </div>
-            <div className="carbon__neutral">
-              <TreeIcon className="carbon__neutral-icon" />
-              <p className="carbon__neutral-p">
-                This is a{" "}
-                <span className="carbon__neutral-p--bold">carbox-neutral</span>{" "}
-                delivery
-              </p>
-            </div>
-            <button className="btn-confirm">Confim Order</button>
+            <OrderTotal total={total} />
+            <CarboxNutral />
+            <ConfirmButton />
           </>
         ) : (
-          <>
-            <div className="empty__cart">
-              <EmptyIcon className="empty__cart-icon" />
-              <p className="empty__cart-text">
-                Your added items will appear here
-              </p>
-            </div>
-          </>
+          <EmptyCart />
         )}
       </div>
     </div>
