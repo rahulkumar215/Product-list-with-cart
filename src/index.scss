@@ -34,6 +34,24 @@
 html {
   box-sizing: border-box;
   font-size: var(--font-size);
+
+  scroll-behavior: smooth;
+
+  @media only screen and (max-width: 84.37em) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 67.75em) {
+    font-size: var(--font-size);
+  }
+
+  @media only screen and (max-width: 56.25em) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 34.37em) {
+    font-size: var(--font-size);
+  }
 }
 
 body {

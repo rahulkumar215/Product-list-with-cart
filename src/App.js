@@ -3,6 +3,7 @@ import "./App.scss";
 import Menu from "./components/menu/Menu";
 import Cart from "./components/cart/Cart";
 import OrderConfirm from "./components/orderconfirm/OrderConfirm";
+import GoToCart from "./components/gotocart/GoToCart";
 
 const TempItemCartData = [
   {
@@ -66,7 +67,7 @@ function App() {
             <Menu updateCartItems={handleCartItems} items={cartItems} />
           </main>
         </div>
-        <div className="container__cart">
+        <div className="container__cart" id>
           <Cart
             items={cartItems}
             removeCartIcon={removeCartIcon}
