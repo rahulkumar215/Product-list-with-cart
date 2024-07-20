@@ -16,11 +16,11 @@ const Card = ({ data, updateCartItems, items }) => {
       qty: itemCount,
       price: data.price,
     });
-  }, [itemCount]);
+  }, [itemCount, data.name, data.image.desktop, data.price, updateCartItems]);
 
   useEffect(() => {
     !items.some((item) => item.id === data.name) && setItemCount(0);
-  }, [items]);
+  }, [items, data.name]);
 
   return (
     <div

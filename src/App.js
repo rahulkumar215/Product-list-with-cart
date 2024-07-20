@@ -3,17 +3,17 @@ import "./App.scss";
 import Menu from "./components/menu/Menu";
 import Cart from "./components/cart/Cart";
 import OrderConfirm from "./components/orderconfirm/OrderConfirm";
-import GoToCart from "./components/gotocart/GoToCart";
+// import GoToCart from "./components/gotocart/GoToCart";
 
-const TempItemCartData = [
-  {
-    id: "Classic Triamisu",
-    title: "Classic Triamisu",
-    img: "",
-    qty: 1,
-    price: 5.5,
-  },
-];
+// const TempItemCartData = [
+//   {
+//     id: "Classic Triamisu",
+//     title: "Classic Triamisu",
+//     img: "",
+//     qty: 1,
+//     price: 5.5,
+//   },
+// ];
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
