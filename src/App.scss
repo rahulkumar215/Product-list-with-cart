@@ -9,6 +9,8 @@
 
   padding: 8.7rem 11.25rem;
 
+  position: relative;
+
   &__menu {
     width: 100%;
 
@@ -30,4 +32,24 @@
   font-size: var(--heading-h1);
   margin-bottom: 2.7rem;
   color: var(--color-rose-90);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__order__confirmed {
 }

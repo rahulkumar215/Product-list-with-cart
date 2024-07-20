@@ -39,6 +39,13 @@ html {
 body {
   font-family: var(--font-family);
   background-color: var(--color-rose-50);
+
+  position: relative;
+}
+
+.lock {
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* body {

@@ -6,7 +6,7 @@ import CarboxNutral from "./CarboxNutral";
 import EmptyCart from "./EmptyCart";
 import ConfirmButton from "./ConfirmButton";
 
-const Cart = ({ items, removeCartIcon }) => {
+const Cart = ({ items, removeCartIcon, stopScroll }) => {
   const total = items.reduce((acc, item) => acc + item.qty * item.price, 0);
 
   return (
@@ -20,7 +20,7 @@ const Cart = ({ items, removeCartIcon }) => {
             ))}
             <OrderTotal total={total} />
             <CarboxNutral />
-            <ConfirmButton />
+            <ConfirmButton stopScroll={stopScroll} />
           </>
         ) : (
           <EmptyCart />
