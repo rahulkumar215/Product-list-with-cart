@@ -6,9 +6,7 @@ import CarboxNutral from "./CarboxNutral";
 import EmptyCart from "./EmptyCart";
 import ConfirmButton from "./ConfirmButton";
 
-const Cart = ({ items, removeCartIcon, stopScroll }) => {
-  const total = items.reduce((acc, item) => acc + item.qty * item.price, 0);
-
+const Cart = ({ items, removeCartIcon, stopScroll, total }) => {
   return (
     <div className="food__cart">
       <h2 className="heading-2 mb-0-9">Your Cart ({items.length})</h2>
@@ -20,7 +18,7 @@ const Cart = ({ items, removeCartIcon, stopScroll }) => {
             ))}
             <OrderTotal total={total} />
             <CarboxNutral />
-            <ConfirmButton stopScroll={stopScroll} />
+            <ConfirmButton stopScroll={stopScroll}>Confirm Order</ConfirmButton>
           </>
         ) : (
           <EmptyCart />

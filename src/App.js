@@ -17,6 +17,12 @@ const TempItemCartData = [
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [stopScroll, setStopScroll] = useState(false);
+  const total = cartItems.reduce((acc, item) => acc + item.qty * item.price, 0);
+
+  const resetState = () => {
+    setCartItems([]);
+    setStopScroll(false);
+  };
 
   const removeCartIcon = (id) => {
     setCartItems(cartItems.filter((item) => item.id !== id));
@@ -55,7 +61,7 @@ function App() {
     <>
       <div className="container">
         <div className="container__main">
-          <h1 className="heading-h1">Desserts</h1>
+          <h1 className="heading-h1 mb-2-7">Desserts</h1>
           <main className="container__menu">
             <Menu updateCartItems={handleCartItems} items={cartItems} />
           </main>
@@ -65,11 +71,18 @@ function App() {
             items={cartItems}
             removeCartIcon={removeCartIcon}
             stopScroll={setStopScroll}
+            total={total}
           />
         </div>
       </div>
+      {/* {stopScroll ? "overlay" : "overlay hidden"}*/}
       <div className={stopScroll ? "overlay" : "overlay hidden"}>
-        <OrderConfirm className="container__order__confirmed" />
+        <OrderConfirm
+          className="container__order__confirmed"
+          items={cartItems}
+          total={total}
+          resetState={resetState}
+        />
       </div>
     </>
   );

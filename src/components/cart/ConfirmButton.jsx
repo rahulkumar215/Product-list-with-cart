@@ -1,14 +1,23 @@
-import React from "react";
+import React, { Children } from "react";
 
-const ConfirmButton = ({ stopScroll }) => {
-  const stopBodyScoll = () => {
-    stopScroll(true);
-    document.body.classList.add("lock");
+const ConfirmButton = ({
+  stopScroll,
+  children,
+  resetState,
+  showImage = false,
+}) => {
+  const handleClick = () => {
+    if (showImage) {
+      resetState();
+    } else {
+      stopScroll(true);
+      document.body.classList.add("lock");
+    }
   };
 
   return (
-    <button className="btn-confirm" onClick={() => stopBodyScoll()}>
-      Confim Order
+    <button className="btn-confirm" onClick={() => handleClick()}>
+      {children}
     </button>
   );
 };
