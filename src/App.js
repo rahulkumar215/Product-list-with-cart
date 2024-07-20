@@ -75,7 +75,6 @@ function App() {
           />
         </div>
       </div>
-      {/* {stopScroll ? "overlay" : "overlay hidden"}*/}
       <div className={stopScroll ? "overlay" : "overlay hidden"}>
         <OrderConfirm
           className="container__order__confirmed"

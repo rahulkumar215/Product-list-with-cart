@@ -5,6 +5,9 @@ import AddToCartButton from "../addToCartButton/AddToCartButton";
 const Card = ({ data, updateCartItems, items }) => {
   const [itemCount, setItemCount] = useState(0);
 
+  const handleIncrement = () => setItemCount((prev) => prev + 1);
+  const handleDecrement = () => setItemCount((prev) => prev - 1);
+
   useEffect(() => {
     updateCartItems({
       id: data.name,
@@ -18,9 +21,6 @@ const Card = ({ data, updateCartItems, items }) => {
   useEffect(() => {
     !items.some((item) => item.id === data.name) && setItemCount(0);
   }, [items]);
-
-  const handleIncrement = () => setItemCount((prev) => prev + 1);
-  const handleDecrement = () => setItemCount((prev) => prev - 1);
 
   return (
     <div
